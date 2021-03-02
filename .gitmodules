@@ -1,4 +1,0 @@
-[submodule "PeerLoss"]
-	path = PeerLoss
-	url = https://github.com/gohsyi/PeerLoss.git
-	branch = master
