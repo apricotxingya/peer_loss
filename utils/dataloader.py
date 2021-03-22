@@ -11,6 +11,8 @@ class DataLoader(object):
         if name == 'susy':
             self.df = pd.read_csv(f'uci/large/SUSY.csv', header=None)
             self.preprocess_susy()
+        if name == 'hotel':
+            self.df = pd.read_csv('data/train.csv')
         if name == 'higgs':
             self.df = pd.read_csv(f'uci/large/HIGGS.csv', header=None)
             self.preprocess_susy()
@@ -60,6 +62,9 @@ class DataLoader(object):
         self.df = onehot(self.df, [col for col in self.df.columns if col != 'target'])
 
     def preprocess_susy(self):
+        self.df.rename(columns={0: 'target'}, inplace=True)
+
+    def preprocess_hotel(self):
         self.df.rename(columns={0: 'target'}, inplace=True)
 
     def preprocess_heart(self):

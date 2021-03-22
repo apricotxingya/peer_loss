@@ -6,7 +6,7 @@ def parse_args():
     parser.add_argument('dataset', type=str, default='heart', choices=[
         'heart', 'breast', 'breast2', 'german', 'banana', 'image', 'thyroid',
         'titanic', 'splice', 'twonorm', 'waveform', 'flare-solar', 'diabetes',
-        'susy', 'higgs',
+        'susy', 'higgs', 'hotel',
     ])
 
     # error rate
