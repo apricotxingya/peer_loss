@@ -13,7 +13,7 @@ class DataLoader(object):
             self.preprocess_susy()
         if name == 'noisy':
             file = args['noisy_file']
-            print('\n\n#####{}\n'.format(args['noisy_file']))
+            # print('\n\n#####{}\n'.format(args['noisy_file']))
             self.df = pd.read_csv(file)
         if name == 'higgs':
             self.df = pd.read_csv(f'uci/large/HIGGS.csv', header=None)
