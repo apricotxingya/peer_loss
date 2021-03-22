@@ -7,8 +7,8 @@ def run(args):
     from run_pam import run as run_pam
 
     run_nn(args)
-    run_svm(args)
-    run_pam(args)
+    # run_svm(args)
+    # run_pam(args)
 
 
 if __name__ == '__main__':
