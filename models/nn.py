@@ -61,8 +61,8 @@ class MLP(nn.Module):
             x = torch.tensor(x, dtype=torch.float)
         if x.dim() < 2:
             x = x.unsqueeze(0)
-        if torch.cuda.is_available():
-            x = x.cuda()
+        # if torch.cuda.is_available():
+        #     x = x.cuda()
         return self.mlp(x).squeeze(-1)
 
     @staticmethod
@@ -76,8 +76,8 @@ class MLP(nn.Module):
 class BinaryClassifier(object):
     def __init__(self, model, learning_rate, loss_func='bce'):
         self.model = model
-        if torch.cuda.is_available():
-            self.model.cuda()
+        # if torch.cuda.is_available():
+        #     self.model.cuda()
 
         if loss_func == 'bce':
             self.transform_y = False
@@ -181,8 +181,8 @@ class BinaryClassifier(object):
 class DMIClassifier(object):
     def __init__(self, model, learning_rate):
         self.model = model
-        if torch.cuda.is_available():
-            self.model.cuda()
+        # if torch.cuda.is_available():
+        #     self.model.cuda()
 
         self.loss = DMILoss()
         self.optimizer = torch.optim.Adam(self.model.parameters(), learning_rate)
