@@ -109,7 +109,7 @@ def find_best_params(kargs):
 
 def run_nn(args):
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
     mlp = MLP(
         feature_dim=X_train.shape[-1],
@@ -132,7 +132,7 @@ def run_nn(args):
 
 def run_nn_symm(args):
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
     mlp = MLP(
         feature_dim=X_train.shape[-1],
@@ -155,7 +155,7 @@ def run_nn_symm(args):
 
 def run_nn_dmi(args):
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
     mlp = MLP(
         feature_dim=X_train.shape[-1],
@@ -178,7 +178,7 @@ def run_nn_dmi(args):
 
 def run_nn_surr(args):
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
     mlp = MLP(
         feature_dim=X_train.shape[-1],
@@ -203,7 +203,7 @@ def run_nn_surr(args):
 
 def run_nn_peer(args):
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
     mlp = MLP(
         feature_dim=X_train.shape[-1],
@@ -228,7 +228,7 @@ def run_nn_peer(args):
 
 def run_nn_peer_val(args):
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
     mlp = MLP(
         feature_dim=X_train.shape[-1],

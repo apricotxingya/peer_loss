@@ -6,13 +6,15 @@ from sklearn.preprocessing import StandardScaler
 
 
 class DataLoader(object):
-    def __init__(self, name):
+    def __init__(self, name, args):
         self.name = name
         if name == 'susy':
             self.df = pd.read_csv(f'uci/large/SUSY.csv', header=None)
             self.preprocess_susy()
-        if name == 'hotel':
-            self.df = pd.read_csv('data/train.csv')
+        if name == 'noisy':
+            file = args['noisy_file']
+            print('\n\n#####{}\n'.format(args['noisy_file']))
+            self.df = pd.read_csv(file)
         if name == 'higgs':
             self.df = pd.read_csv(f'uci/large/HIGGS.csv', header=None)
             self.preprocess_susy()

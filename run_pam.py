@@ -14,7 +14,7 @@ MARGINS = [0, 0.125, 0.25, 0.5, 1, 2, 3, 4, 5]
 def find_best_margin(args):
     """ return `best_margin / 0.1` """
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
 
     results = []
@@ -27,7 +27,7 @@ def find_best_margin(args):
 
 def run_pam(args):
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
     model = Perceptron(feature_dim=X_train.shape[-1], margin=args['margin'])
     model.fit(X_train, y_train)

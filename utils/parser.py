@@ -6,7 +6,7 @@ def parse_args():
     parser.add_argument('dataset', type=str, default='heart', choices=[
         'heart', 'breast', 'breast2', 'german', 'banana', 'image', 'thyroid',
         'titanic', 'splice', 'twonorm', 'waveform', 'flare-solar', 'diabetes',
-        'susy', 'higgs', 'hotel',
+        'susy', 'higgs', 'noisy',
     ])
 
     # error rate
@@ -63,6 +63,10 @@ def parse_args():
                         help='whether to normalize the data (default: True)')
     parser.add_argument('--verbose', action='store_true', default=False,
                         help='whether to output more information (default: False)')
+
+    # data_path
+    parser.add_argument('--noisy_file', type=str, default='',
+                        help='for noisy labeling')
 
     args = parser.parse_args()
 

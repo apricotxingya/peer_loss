@@ -13,7 +13,7 @@ CLASS_WEIGHTS = [0.1, 0.2, 0.25, 0.33, 0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 10.0]
 
 def find_best_c1(args):
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
     results = []
     for c1 in CLASS_WEIGHTS:
@@ -25,7 +25,7 @@ def find_best_c1(args):
 
 def run_c_svm(args):
     set_global_seeds(args['seed'])
-    dataset = DataLoader(args['dataset'])
+    dataset = DataLoader(args['dataset'], args)
     X_train, X_test, X_val, y_train, y_test, y_val = dataset.prepare_train_test_val(args)
     model = SVC(gamma='auto', class_weight={0: 1., 1: args['C1']})
     model.fit(X_train, y_train)
